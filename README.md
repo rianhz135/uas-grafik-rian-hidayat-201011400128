@@ -1,0 +1,2 @@
+# uas-grafik-rian-hidayat-201011400128
+UAS KOMPUTER GRAFIK - RIAN HIDAYAT
