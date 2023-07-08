@@ -1,0 +1,82 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- Identitas -->
+    <div class="card">
+        <div class="card-content">
+          <h4>Nama: Rian Hidayat</h4>
+          <h4>NIM: 201011400128</h4>
+          <h4>Kelas: 06TPLE06</h4>
+        </div>
+      </div>      
+    <!-- Indentitas -->
+<div class="container p-3 my-3 border">
+    <h2>Select an image to upload and display</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+
+    <div>
+        <form action="/crop/" method="POST"> 
+            <dl>
+                <p>
+                    <label for="size">Size:</label>
+                    <input type="text" name="size" class="form-control">
+                </p>
+            </dl>
+            <label for="position">Position:</label>
+            <select name="position" id="position" class="form-control">
+                <option value="top_left">Top left</option>
+                <option value="top_center">Top center</option>
+                <option value="top_right">Top right</option>
+                <option value="center_left">Center left</option>
+                <option value="center">Center</option>
+                <option value="center_right">Center right</option>
+                <option value="bottom_left">Bottom left</option>
+                <option value="bottom_center">Bottom center</option>
+                <option value="bottom_right">Bottom right</option>
+            </select>
+            <p>
+                <input name='Submit' type="submit" value="Submit" class="btn btn-primary">
+            </p>
+        </form>
+    </div>
+
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+
+    <br>
+
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" class="form-control-file border" required="">
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </p>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
