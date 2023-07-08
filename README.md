@@ -1,2 +1,5 @@
 # uas-grafik-rian-hidayat-201011400128
 UAS KOMPUTER GRAFIK - RIAN HIDAYAT
+Nama : Rian Hidayat
+NIM : 201011400128
+Kelas :06TPLE006
